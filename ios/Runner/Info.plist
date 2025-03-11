@@ -52,6 +52,13 @@
 	<string>tel</string>
 	<string>mailto</string>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>https</string>
+		<string>googlechrome</string>
+		<string>googledrive</string>
+	</array>
+
 
 </dict>
 </plist>

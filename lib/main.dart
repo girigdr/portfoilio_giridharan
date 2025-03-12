@@ -1,8 +1,12 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'BLOC/lightTheme.dart';
 import 'PROFILE/profile.dart';
+
+import 'package:flutter/foundation.dart'; // Import for kIsWeb
+import 'dart:io' show Platform;
 
 void main() {
   runApp( MyApp() ) ;
@@ -25,14 +29,14 @@ class MyApp extends StatelessWidget {
       child: MaterialApp( 
           debugShowCheckedModeBanner : false , 
           theme : ThemeData(
-            scaffoldBackgroundColor: Colors.white ,
+            scaffoldBackgroundColor: const Color.fromARGB(255, 209, 6, 6) ,
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.black , 
               brightness:  Brightness.dark  ,
             )
           )  ,
           home : SafeArea(
-            child: Profile(),
+            child: kIsWeb ? Scaffold(body : Center(child: Text("AVAIABLE SOON"))) : Profile() ,
           ) 
         ),
     ) ;

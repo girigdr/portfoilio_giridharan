@@ -10,7 +10,8 @@ import '../LINKS/Link.dart';
 
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  double t , b ;
+  Profile({super.key , required this.t , required this .b });
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -20,8 +21,9 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    double h = MediaQuery.of( context ).size.height ;
-    double w = MediaQuery.of( context ).size.width ;
+    double h = MediaQuery.of( context ).size.height -  widget.t -  widget.b ;
+    //MediaQuery.of( context ).size.height ;
+    double w = MediaQuery.of( context ).size.width;
     final bloc1 = BlocProvider.of < BlocOfIconView >( context ) ;
     final git = BlocProvider.of < BlocGit >( context ) ;
     final phone = BlocProvider.of < BlocPhone >( context ) ;

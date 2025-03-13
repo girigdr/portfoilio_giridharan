@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfoilio_giridharan/MOBILE/LM.dart';
+import 'package:portfoilio_giridharan/MOBILE/PM.dart';
 import 'BLOC/lightTheme.dart';
-import 'PROFILE/profile.dart';
 
 import 'package:flutter/foundation.dart'; // Import for kIsWeb
 import 'dart:io' show Platform;
@@ -29,15 +30,52 @@ class MyApp extends StatelessWidget {
       child: MaterialApp( 
           debugShowCheckedModeBanner : false , 
           theme : ThemeData(
-            scaffoldBackgroundColor: const Color.fromARGB(255, 209, 6, 6) ,
+            scaffoldBackgroundColor: const Color.fromARGB(255, 0, 0, 0) ,
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.black , 
               brightness:  Brightness.dark  ,
             )
           )  ,
-          home : SafeArea(
-            child: kIsWeb ? Scaffold(body : Center(child: Text("AVAIABLE SOON"))) : Profile() ,
-          ) 
+          home :Builder(
+            builder: (context) {
+              final mediaQuery = MediaQuery.of(context);
+              final t = mediaQuery.padding.top;
+              final b = mediaQuery.padding.bottom;
+              final l = mediaQuery.padding.left;
+              final r = mediaQuery.padding.right;
+              final h = mediaQuery.size.height;
+              final w = mediaQuery.size.width;
+
+              return Scaffold(
+                body: SafeArea(
+                  child: kIsWeb ?
+                   Scaffold(body : 
+                    Center( child: Text("AVAIABLE SOON IN WEB AND WINDOWS AND MAC", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),) ) ) 
+                    :
+                    ( h > w ) ?  P_M( t : t , b :  b , l : l , r : r )  : 
+                    L_M( t : t , b :  b , l : l , r : r ) 
+                ),
+              );
+            },
+          ),
+                    
+                    
+          
+        //    SafeArea(
+        //     child: kIsWeb ? Scaffold(body : Center(child: Text("AVAIABLE SOON"))) : 
+            
+            
+        //  Builder(
+        //   builder: (context) {
+        //     // This context is inside the SafeArea, so it should include the correct padding.
+        //     final t = MediaQuery.of(context).padding.top;
+        //     final b = MediaQuery.of(context).padding.bottom;
+        //     return  P( t : t , b :  b ) ;
+        //   },
+        // ),
+            
+           
+        //   ) 
         ),
     ) ;
   

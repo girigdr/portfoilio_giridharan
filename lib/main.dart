@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfoilio_giridharan/Education/Edu.dart';
 import 'package:portfoilio_giridharan/MOBILE/LM.dart';
 import 'package:portfoilio_giridharan/MOBILE/PM.dart';
 import 'BLOC/lightTheme.dart';
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: ( context ) => BlocLeetcode() ) ,
         BlocProvider(create: ( context ) => BlocLinkedIn() ) ,
         BlocProvider(create: ( context ) => BlocMail() ) ,
+        BlocProvider(create: (context) => BlocWL() ),
+        BlocProvider(create: (context) => BlocEdTF() )
       ] ,
       child: MaterialApp( 
           debugShowCheckedModeBanner : false , 
@@ -46,11 +49,12 @@ class MyApp extends StatelessWidget {
               final h = mediaQuery.size.height;
               final w = mediaQuery.size.width;
 
+              // return E( h: h , w:w ,  t:t , b:b ) ;
               return Scaffold(
                 body: SafeArea(
                   child: kIsWeb ?
-                   Scaffold(body : 
-                    Center( child: Text("AVAIABLE SOON IN WEB AND WINDOWS AND MAC", style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),) ) ) 
+                  
+                   L_M( t : t , b :  b , l : l , r : r ) 
                     :
                     ( h > w ) ?  P_M( t : t , b :  b , l : l , r : r )  : 
                     L_M( t : t , b :  b , l : l , r : r ) 

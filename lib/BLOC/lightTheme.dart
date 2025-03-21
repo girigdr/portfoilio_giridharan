@@ -6,12 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 
-abstract class Icons {}
-class IconsView extends Icons {
+abstract class Icons1 {}
+class IconsView extends Icons1 {
   double m ;
   IconsView ( this.m ) ;
 }
-class BlocOfIconView extends Bloc < Icons , double > {
+class BlocOfIconView extends Bloc < Icons1 , double > {
   BlocOfIconView ( ) : super( 0 ) {
 
     on < IconsView > ( ( event , emit ) {
@@ -116,8 +116,39 @@ class BlocSwitch extends Bloc < Page , int > {
 
 
 
+abstract class WLine {} 
+class WL extends WLine {
+  double page ;
+  WL( this.page ) ;
+}
+class BlocWL extends Bloc < WLine , double > {
+  BlocWL() : super( 0 ) {
+    on < WL > ( ( event , emit ) {
+      emit( event.page ) ;
+    }) ;
+  }
+}
 
 
+
+abstract class edu {
+  static void add(bool bool) {}
+}
+
+
+class EdTF extends edu {
+  bool b ;
+  EdTF( this.b ) ;
+}
+
+class BlocEdTF extends Bloc < edu , bool > {
+  BlocEdTF() : super( false ) {
+    on < EdTF > ( ( event , emit ) {
+      emit( event.b ) ;
+    }) ;
+
+  }
+}
 
 
 

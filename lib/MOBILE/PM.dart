@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfoilio_giridharan/BLOC/lightTheme.dart';
+import 'package:portfoilio_giridharan/Education/Edu.dart';
 import 'package:portfoilio_giridharan/LINKS/Link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -33,10 +34,12 @@ class _P_MState extends State<P_M>  {
     final mail = BlocProvider.of < BlocMail >( context ) ;
     final leetcode = BlocProvider.of < BlocLeetcode >( context ) ;
     final linkedin =  BlocProvider.of < BlocLinkedIn >( context ) ;
+    final wl =  BlocProvider.of < BlocWL >( context ) ;
+    final edu =  BlocProvider.of < BlocEdTF >( context ) ;
 
 
 
-    return PM ( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin  ) ;
+    return PM (edu ,  h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin , wl , widget.l , widget.r , widget.t , widget.b  , context ) ;
   }
 }
 
@@ -49,7 +52,7 @@ class _P_MState extends State<P_M>  {
 
 
 
-dynamic PM ( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin  ) {
+dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin , wl , l , r , t , b , context ) {
   h2 = 0 ;
   double m = 0 ;
   bloc1.add(IconsView(0)) ;
@@ -58,6 +61,7 @@ dynamic PM ( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin  ) {
   mail.add(Mail(0)) ;
   leetcode.add( Leetcode(0)) ;
   linkedin.add(Linkedin(0)) ;
+  edu.add(EdTF (false )) ;
   return Stack(
       children: [
         Positioned(
@@ -74,7 +78,7 @@ dynamic PM ( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin  ) {
                 child: ( h1 == h / 2 ) ? Stack(
                   children: [
                     top( h , w , h2 ) ,
-                    icon( h : h , w : w , bloc1 : bloc1 , git : git , phone : phone , mail : mail , leetcode : leetcode , linkedin: linkedin , h2 : h2 ),
+                    icon(wl :wl , h : h , w : w , bloc1 : bloc1 , git : git , phone : phone , mail : mail , leetcode : leetcode , linkedin: linkedin , h2 : h2  ),
                   ],
                 ) : null 
               );
@@ -84,7 +88,7 @@ dynamic PM ( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin  ) {
         Positioned(
           bottom: 0 ,
           child: TweenAnimationBuilder(
-            tween: Tween < double > ( begin:  0 ,  end :  h / 2 ), 
+            tween: Tween < double > ( begin:  0 ,  end :  h / 2  ), 
             duration: Duration( milliseconds: 600 ), 
             builder: (context, value, child) {
               double z = value ;
@@ -92,20 +96,50 @@ dynamic PM ( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin  ) {
                 height: value ,
                 width: w ,
                 color: Color.fromARGB(255, 0, 0, 0) ,
-                child: ( z == h / 2 ) ? bottom( h, w , z ) : null ,
+                child: ( z == h / 2 ) ? bottom( h, w , z , wl , context , l , r , t , b , edu  ) : null ,
               ) ;
             },
           ),
-        )
+        ) ,
+        // E( h: h , w:w ,  t:t , b:b )
+        // if( context.watch < BlocEdTF > ().state )
+        BlocBuilder<BlocEdTF, bool>(
+          builder: (context, showE) {
+            if (showE) {
+              return TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: h),
+                curve: Curves.easeInOut,
+                duration: Duration(milliseconds: 300),
+                builder: (context, value, child) {
+                  return Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: value,
+                      width: w,
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      child: ( value == h ) ? E( edu : edu , h: h , w:w ,  t:t , b:b ) : SizedBox(),
+                    ),
+                  );
+                },
+              );
+            }
+            return Container(); // Don't show E when showE is false
+          },
+        ),
       ],
     );
 }
 
 
-dynamic bottom( h , w , h1 ) {
+dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
   
   return  Stack(
       children: [
+
+        
+        
         Positioned(
           left: w / 20 ,
           bottom: h / 4 ,
@@ -113,6 +147,7 @@ dynamic bottom( h , w , h1 ) {
             quarterTurns: 3 ,
             child: Stack(
               children: [
+                
                 
                 TweenAnimationBuilder(
                     curve: Curves.decelerate ,
@@ -169,7 +204,30 @@ dynamic bottom( h , w , h1 ) {
               ),
               GestureDetector(
                 onTap: () {
-                  
+          
+                      edu.add( EdTF( true ) ) ;
+
+                  // edu.add( EdTF( true ) ) ;
+                  //  context.read<BlocEdTF>().add(EdTF(true));
+                  // Navigator.push(
+                  //   context,
+                  //   PageRouteBuilder(
+                  //     pageBuilder: (context, animation, secondaryAnimation) {
+                  //       return E(h: l, w: r, t: t, b: b);
+                  //     },
+                  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  //       return SlideTransition(
+                  //         position: Tween<Offset>(
+                  //           begin: const Offset(0, 1), // Slide in from the bottom
+                  //           end: Offset.zero,
+                  //         ).animate(animation),
+                  //         child: child,
+                  //       );
+                  //     },
+                  //   ),
+                  // );
+
+                  // Navigator.push( context , MaterialPageRoute(builder: (context) => E( h: h , w:w ,  t:t , b:b )) ) ;
                 },
                 child: Container(
                   height: h / 20 ,
@@ -271,12 +329,51 @@ dynamic bottom( h , w , h1 ) {
             },
           ),
         ),
+
+        BlocBuilder < BlocWL , double > (
+          builder: (context, state) {
+            return Positioned(
+              left:  w / 30  ,
+              bottom : h / 2.5   ,
+              child:TweenAnimationBuilder(
+                curve: Curves.decelerate, //w / 7
+                tween: Tween < double > ( begin:  0 , end: h / 2 - h / 2.5 - 1 ),
+                duration: Duration(milliseconds: 1000 ),
+                builder: ( context , s , child ) {
+                  wl.add( WL(s) ) ;
+                  return Container(
+                    height: s ,
+                    width: w / 20 ,
+                    color: const Color.fromARGB(0, 219, 66, 66) ,
+                    child: Center(
+                      child: Container(
+                        height: s,
+                        width: 1.5 ,
+                        color: const Color.fromARGB(255, 255, 255, 255) ,
+                      ),
+                    ),
+                  );
+                  
+                  
+                  //  Container(
+                  //   height: s ,
+                  //   width: 1.5 ,
+                  //   color: const Color.fromARGB(255, 255, 255, 255) ,
+                  // );
+                }
+              ) ,
+            );
+          },
+        )
+
+
+        
       ],
     ) ;
 }
 
 
-dynamic top ( h , w , h2 ) {
+dynamic top ( h , w , h2  ) {
   return Positioned(
     bottom: 1,
     left : h / 15 ,
@@ -402,9 +499,10 @@ dynamic top ( h , w , h2 ) {
 
 
 class icon extends StatelessWidget {
-  dynamic  h , w , bloc1 , git , phone , mail , leetcode , linkedin , h2 ;
+  dynamic  h , w , bloc1 , git , phone , mail , leetcode , linkedin , h2 , wl ;
   icon({
     super.key , 
+    required this.wl ,
     required this .h , 
     required this.w , 
     required this.bloc1 , 
@@ -419,25 +517,25 @@ class icon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       left:  w / 30  ,
-      bottom: 5   ,
+      bottom: 1 ,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center ,
         children: [
                   
                   
-          if ( context.watch < BlocMail > ().state > w / 22 ) SizedBox( height: w / 30 , ) ,
-          if ( context.watch < BlocMail > ().state > w / 22 ) TweenAnimationBuilder(
-            curve: Curves.decelerate,
-            tween: Tween < double > ( begin:  0 , end: w / 10 ),
-            duration: Duration(milliseconds: 1000 ),
-            builder: ( context , s , child ) {
-              return Container(
-                height: s ,
-                width: 1.5 ,
-                color: Colors.black ,
-              );
-            }
-          ) ,
+          // if ( context.watch < BlocMail > ().state > w / 22 ) SizedBox( height: w / 30 , ) ,
+          // if ( context.watch < BlocMail > ().state > w / 22 ) TweenAnimationBuilder(
+          //   curve: Curves.decelerate,
+          //   tween: Tween < double > ( begin:  0 , end: w / 10 ),
+          //   duration: Duration(milliseconds: 1000 ),
+          //   builder: ( context , s , child ) {
+          //     return Container(
+          //       height: s ,
+          //       width: 1.5 ,
+          //       color: Colors.black ,
+          //     );
+          //   }
+          // ) ,
                   
           if ( context.watch < BlocLeetcode > ().state > w / 22 ) SizedBox( height: w / 20 , ) ,
           if ( context.watch < BlocLeetcode > ().state > w / 22 ) BlocBuilder < BlocMail , double >(
@@ -578,7 +676,7 @@ class icon extends StatelessWidget {
           ),
           
           
-          if ( bloc1.state == w / 6 )  SizedBox( height: min ( h , w ) / 20 , ) ,
+          if ( context.watch<BlocOfIconView>().state == w / 6 )  SizedBox( height: min ( h , w ) / 20 , ) ,
           if (context.watch<BlocOfIconView>().state == w / 6 ) BlocBuilder < BlocPhone , double >(
             builder: (context, state)  {
               return TweenAnimationBuilder(
@@ -602,8 +700,8 @@ class icon extends StatelessWidget {
               ) ;
             }
           )  ,
-          SizedBox( height: min ( h , w ) / 20 , ) ,
-          BlocBuilder < BlocOfIconView , double >(
+          if ( context.watch<BlocOfIconView>().state == w / 6  )SizedBox( height: min ( h , w ) / 20 , ) ,
+          if ( context.watch < BlocWL > ().state ==  h / 2 - h / 2.5 - 1 )BlocBuilder < BlocOfIconView , double >(
             builder: (context, state)  {
               return TweenAnimationBuilder(
                       curve: Curves.decelerate,

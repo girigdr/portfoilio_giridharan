@@ -131,9 +131,7 @@ class BlocWL extends Bloc < WLine , double > {
 
 
 
-abstract class edu {
-  static void add(bool bool) {}
-}
+abstract class edu {}
 
 
 class EdTF extends edu {
@@ -156,7 +154,44 @@ class BlocEdTF extends Bloc < edu , bool > {
 
 
 
+abstract class about {
+  // static void add(ATF atf) {}
+}
 
+
+class ATF extends about {
+  bool b ;
+  ATF( this.b ) ;
+}
+
+class BlocATF extends Bloc < about , bool > {
+  BlocATF() : super( false ) {
+    on < ATF > ( ( event , emit ) {
+      emit( event.b ) ;
+    }) ;
+
+  }
+}
+
+
+abstract class Skill {
+  // static void add(ATF atf) {}
+}
+
+
+class STF extends Skill {
+  bool b ;
+  STF( this.b ) ;
+}
+
+class BlocSTF extends Bloc < Skill , bool > {
+  BlocSTF() : super( false ) {
+    on < STF > ( ( event , emit ) {
+      emit( event.b ) ;
+    }) ;
+
+  }
+}
 
 
 

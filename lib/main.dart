@@ -11,7 +11,14 @@ import 'package:flutter/foundation.dart'; // Import for kIsWeb
 import 'dart:io' show Platform;
 
 void main() {
-  runApp( MyApp() ) ;
+  runApp( 
+    
+    
+    MyApp()
+    
+    
+    
+     ) ;
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +35,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: ( context ) => BlocLinkedIn() ) ,
         BlocProvider(create: ( context ) => BlocMail() ) ,
         BlocProvider(create: (context) => BlocWL() ),
-        BlocProvider(create: (context) => BlocEdTF() )
+        BlocProvider(create: (context) => BlocEdTF() ),
+        BlocProvider(create: (context) => BlocATF() ),
+        BlocProvider(create: (context) => BlocSTF() )
       ] ,
       child: MaterialApp( 
           debugShowCheckedModeBanner : false , 
@@ -49,7 +58,7 @@ class MyApp extends StatelessWidget {
               final h = mediaQuery.size.height;
               final w = mediaQuery.size.width;
 
-              // return E( h: h , w:w ,  t:t , b:b ) ;
+              // return BubbleScreen() ;
               return Scaffold(
                 body: SafeArea(
                   child: kIsWeb ?

@@ -194,6 +194,27 @@ class BlocSTF extends Bloc < Skill , bool > {
 }
 
 
+abstract class AboutIcons {} 
+
+class AI extends AboutIcons {
+  Map < dynamic , dynamic > map ;
+  AI( this.map ) ; 
+
+  Map MAP () {
+    return map ;
+  }
+}
+
+class BlocAI extends Bloc < AboutIcons , dynamic > {
+ 
+  BlocAI() : super ( { 0 : 0 , 1 : 0 , 2 : 0 , 3 : 0 , 4 : 0 , 5 : 0 } ) {
+    on < AI > ( ( event , emit ) {
+      emit( event.map ) ;
+    }) ;
+  }
+} 
+
+
 
 
 

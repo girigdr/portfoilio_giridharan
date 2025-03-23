@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfoilio_giridharan/Education/Edu.dart';
+import 'BLOC/AboutIcon.dart';
 import 'package:portfoilio_giridharan/MOBILE/LM.dart';
 import 'package:portfoilio_giridharan/MOBILE/PM.dart';
 import 'BLOC/lightTheme.dart';
@@ -37,7 +37,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => BlocWL() ),
         BlocProvider(create: (context) => BlocEdTF() ),
         BlocProvider(create: (context) => BlocATF() ),
-        BlocProvider(create: (context) => BlocSTF() )
+        BlocProvider(create: (context) => BlocSTF() ),
+        BlocProvider(create: (context) => BlocAI () ),
+        BlocProvider(create: (context) => BlocOfI1 () ),
+        BlocProvider(create: (context) => BlocI2 () ),
+        BlocProvider(create: (context) => BlocGitI () ),
+        BlocProvider(create: (context) => BlocL () ),
+        BlocProvider(create: (context) => BlocLeet () ),
+        BlocProvider(create: (context) => BlocMailI () ),
       ] ,
       child: MaterialApp( 
           debugShowCheckedModeBanner : false , 

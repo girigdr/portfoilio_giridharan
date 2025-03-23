@@ -4,6 +4,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:portfoilio_giridharan/Education/Skills.dart';
 import '../BLOC/lightTheme.dart';
 class E extends StatefulWidget {
   double h , w ,  t , b ;
@@ -125,9 +126,9 @@ class _EState extends State<E> {
                       decoration: BoxDecoration(
                         border: Border.all(
                           width: 1 ,
-                          color: const Color.fromARGB(255, 170, 170, 170),
+                          color: const Color.fromARGB(255, 255, 255, 255),
                         ),
-                          color: const Color.fromARGB(0, 255, 255, 255)
+                          color: const Color.fromARGB(255, 0, 0, 0)
                       // borderRadius: BorderRadius.all(Radius.circular( 10 ))
                     
                       ),
@@ -159,7 +160,7 @@ class _EState extends State<E> {
                                   ),
                                 ],
                               ),
-                              SizedBox( height: hi / 25 ,),
+                              SizedBox( height: hi / 30 ,),
       
                               Wrap(
                                 children: [
@@ -204,7 +205,7 @@ class _EState extends State<E> {
                                   ),
                                 ],
                               ),
-                              SizedBox( height: hi / 25 ,),
+                              SizedBox( height: hi / 30 ,),
                                Wrap(
                                 children: [
                                   TweenAnimationBuilder(
@@ -248,7 +249,7 @@ class _EState extends State<E> {
                                   ),
                                 ],
                               ),
-                              SizedBox( height: hi / 25 ,),
+                              SizedBox( height: hi / 30 ,),
                               Wrap(
                                 children: [
                                   TweenAnimationBuilder(
@@ -292,7 +293,7 @@ class _EState extends State<E> {
                                   ),
                                 ],
                               ),
-                              SizedBox( height: hi / 25 ,),
+                              SizedBox( height: hi / 30 ,),
                               Wrap(
                                 children: [
                                   TweenAnimationBuilder(
@@ -398,6 +399,21 @@ class _EState extends State<E> {
                 ),
               ),
             ) , 
+
+            Positioned(
+              left : 0 ,
+              bottom: 0 ,
+                child: FutureBuilder(
+                        future: Future.delayed(const Duration(milliseconds: 100)),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState == ConnectionState.done) {
+                            return icon(h: hi, w: wi);
+                          }
+                          return const SizedBox(); // Placeholder before icon loads
+                        },
+                      ),
+
+              ),
       
       
       
@@ -492,7 +508,7 @@ class _BubbleScreenState extends State<BubbleScreen>
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    for (int i = 0; i < max( screenHeight , screenWidth ) / 30 ; i++) {
+    for (int i = 0; i < max( screenHeight , screenWidth ) / 20 ; i++) {
       bubbles.add(
         Bubble(
           x: random.nextDouble() * screenWidth, // Random X position

@@ -207,7 +207,6 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                         ),
                       );
                     });
-
                     Timer( Duration( milliseconds: 100 ), () => about.add( ATF ( false ) ) ,) ;
                   }
 
@@ -512,7 +511,8 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                         decoration: BoxDecoration(
                           // color: Colors.amber,
                           image: DecorationImage(
-                            image:AssetImage("assets/image/photo.png")
+                            image:AssetImage("assets/image/photo2.png" )
+                            ,fit: BoxFit.cover
                           )
                         ), 
                       )

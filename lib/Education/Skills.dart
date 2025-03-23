@@ -35,16 +35,8 @@ class _SkillsState extends State<Skills> {
           children: [
 
             BubbleScreen() ,
-        
-            Padding(
-              padding:  EdgeInsets.only( top :  hi / 10  ),
-              child: SingleChildScrollView(
-                child: Column (
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // SizedBox( height: hi / 10 ,) ,
-                       
-                       Align(
+
+            Align(
                         alignment: Alignment( 0.5, -0.7 ),
                         child: Container(
                         height: hi / 8 ,
@@ -65,201 +57,213 @@ class _SkillsState extends State<Skills> {
                           ),
                         ),
                       ),
-                  
-                    
-                          
-                    
-                    Container(
-                    height: hi / 1.9 ,
-                    width: wi / 1.5,
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 110, 110, 110),
-                      border: Border.all(
-                        width: 1 , 
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                      )
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(wi / 10 ) ,
+                  Padding(
+                    padding:  EdgeInsets.only( top :  hi / 10  ),
+                    child: Center(
                       child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        child: Column (
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                        
-                            Row(children: [
-                              Container(
-                                height: wi / 7 ,
-                                width: wi / 7 ,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/image/fe.png") ,fit: BoxFit.contain 
-                                  )
-                                ),
-                        
-                        
-                              ) ,
-                        
-                              Wrap(
-                                children: [
-                                  Text(
-                                    "FRONTEND \nTECHONOLOGIES" ,
-                                    style: TextStyle(
-                                      color: Colors.white ,
-                                      fontFamily: 'f1',
-                                      fontSize: min( hi , wi ) / 26
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],),
-                            Wrap(
-                              children: [
-                                Text(
-                                  "UI developement is like Transforming ideas into interactive and intuitive user experiences\n\n"
-                                  
-                                  "SKILLS . . ,\n"
-                                  "Dart , "
-                                  "Flutter\n"
-                                  "Flutter Bloc\n"
-                                  "Android , Ios , Web\n"
-                                  "Flutter Bloc\n"
-                                  "Cross Platform Development\n\n" 
+                            // SizedBox( height: hi / 10 ,) ,
+                               
+                               
+                          
+                            SizedBox( height: hi / 6 ,) ,
                             
-                                  "TOOLS . . ,\n" 
-                                  "Android Studios\n"
-                                  "VS code , "
-                                  "Github\n",
-                                  // " optimization.\n\nI have successfully built an e-commerce platform with a Java Spring"
-                                  // " Boot backend and Flutter frontend, implementing functionality to store multiple "
-                                  // "images for a single product. Additionally, I am developing a Flutter app and"
-                                  // " enhancing my knowledge of Android development." 
-                                  // ,
-                                  style: TextStyle(
-                                    color: Colors.white ,
-                                    fontFamily: 'f1',
-                                    fontSize: min( hi , wi ) / 26
-                                  ),
-                                
-                                )
-                              ],
+                                  
+                            
+                            Container(
+                            height: hi / 1.9 ,
+                            width: wi / 1.5,
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 110, 110, 110),
+                              border: Border.all(
+                                width: 1 , 
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                              )
                             ),
+                            child: Padding(
+                              padding: EdgeInsets.all(wi / 10 ) ,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                
+                                    Row(children: [
+                                      Container(
+                                        height: wi / 7 ,
+                                        width: wi / 7 ,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/image/fe.png") ,fit: BoxFit.contain 
+                                          )
+                                        ),
+                                
+                                
+                                      ) ,
+                                
+                                      Wrap(
+                                        children: [
+                                          Text(
+                                            "FRONTEND \nTECHONOLOGIES" ,
+                                            style: TextStyle(
+                                              color: Colors.white ,
+                                              fontFamily: 'f1',
+                                              fontSize: min( hi , wi ) / 26
+                                            ),
+                                          )
+                                        ],
+                                      )
+                                    ],),
+                                    Wrap(
+                                      children: [
+                                        Text(
+                                          "UI developement is like Transforming ideas into interactive and intuitive user experiences\n\n"
+                                          
+                                          "SKILLS . . ,\n"
+                                          "Dart , "
+                                          "Flutter\n"
+                                          "Flutter Bloc\n"
+                                          "Android , Ios , Web\n"
+                                          "Flutter Bloc\n"
+                                          "Cross Platform Development\n\n" 
+                                    
+                                          "TOOLS . . ,\n" 
+                                          "Android Studios\n"
+                                          "VS code , "
+                                          "Github\n",
+                                          // " optimization.\n\nI have successfully built an e-commerce platform with a Java Spring"
+                                          // " Boot backend and Flutter frontend, implementing functionality to store multiple "
+                                          // "images for a single product. Additionally, I am developing a Flutter app and"
+                                          // " enhancing my knowledge of Android development." 
+                                          // ,
+                                          style: TextStyle(
+                                            color: Colors.white ,
+                                            fontFamily: 'f1',
+                                            fontSize: min( hi , wi ) / 26
+                                          ),
+                                        
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ) ,
+                                  
+                            SizedBox( height: hi / 15 ,) ,
+                          Container(
+                            height: hi / 1.9 ,
+                            width: wi / 1.5,
+                            decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 110, 110, 110),
+                              border: Border.all(
+                                width: 1 , 
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                              )
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(wi / 10 ) ,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                
+                                    Row(children: [
+                                      Container(
+                                        height: wi / 7 ,
+                                        width: wi / 7 ,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("assets/image/b3.png") ,fit: BoxFit.contain 
+                                          )
+                                        ),
+                                
+                                
+                                      ) ,
+                                
+                                      Wrap(
+                                        children: [
+                                          Text(
+                                            "BACKEND \nTECHONOLOGIES" ,
+                                            style: TextStyle(
+                                              color: Colors.white ,
+                                              fontFamily: 'f1',
+                                              fontSize: min( hi , wi ) / 26
+                                            ),
+                                          )
+                                        ],
+                                      )
+                                    ],),
+                                    Wrap(
+                                      children: [
+                                        Text(
+                                          "Backend development is like Connecting data, systems, and users with efficiency and security\n\n"
+                                          
+                                          "SKILLS . . ,\n"
+                                          "Java , MySQL, "
+                                          "SpringBoot\n"
+                                          "Java Server Pages [ JSP ]\n"
+                                          "Servlet\n"
+                                          "Java Database Connectivity [ JDBC ]\n"
+                                          "Oops , RestAPI , Dsa , Mvc\n\n" 
+                                    
+                                          "TOOLS . . ,\n" 
+                                          "Intelliji\n"
+                                          "Postman , "
+                                          "Eclipse\n",
+                                          // " optimization.\n\nI have successfully built an e-commerce platform with a Java Spring"
+                                          // " Boot backend and Flutter frontend, implementing functionality to store multiple "
+                                          // "images for a single product. Additionally, I am developing a Flutter app and"
+                                          // " enhancing my knowledge of Android development." 
+                                          // ,
+                                          style: TextStyle(
+                                            color: Colors.white ,
+                                            fontFamily: 'f1',
+                                            fontSize: min( hi , wi ) / 26
+                                          ),
+                                        
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ) ,
+                                  
+                            SizedBox( height: hi / 10 ,) ,
+                            
+                                  
+                          //   Align(
+                          //   alignment: Alignment( -0.4, 0.8 ),
+                          //   child: Container(
+                          //     height: hi / 15 ,
+                          //     width: wi / 3 ,
+                          //     color: const Color.fromARGB(0, 255, 193, 7) ,
+                          //     child: FittedBox(
+                          //       child: Row(
+                          //         children: [
+                          //           Text(
+                          //             'SWIPE . . . ',
+                          //             style: TextStyle(
+                          //               fontFamily: 'f1',
+                          //               color: const Color.fromARGB(0, 255, 255, 255)
+                          //             ),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                                  
+                                  
                           ],
                         ),
                       ),
                     ),
                   ) ,
-                          
-                    SizedBox( height: hi / 15 ,) ,
-                  Container(
-                    height: hi / 1.9 ,
-                    width: wi / 1.5,
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 110, 110, 110),
-                      border: Border.all(
-                        width: 1 , 
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                      )
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(wi / 10 ) ,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                        
-                            Row(children: [
-                              Container(
-                                height: wi / 7 ,
-                                width: wi / 7 ,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage("assets/image/b3.png") ,fit: BoxFit.contain 
-                                  )
-                                ),
-                        
-                        
-                              ) ,
-                        
-                              Wrap(
-                                children: [
-                                  Text(
-                                    "BACKEND \nTECHONOLOGIES" ,
-                                    style: TextStyle(
-                                      color: Colors.white ,
-                                      fontFamily: 'f1',
-                                      fontSize: min( hi , wi ) / 26
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],),
-                            Wrap(
-                              children: [
-                                Text(
-                                  "Backend development is like Connecting data, systems, and users with efficiency and security\n\n"
-                                  
-                                  "SKILLS . . ,\n"
-                                  "Java , MySQL, "
-                                  "SpringBoot\n"
-                                  "Java Server Pages [ JSP ]\n"
-                                  "Servlet\n"
-                                  "Java Database Connectivity [ JDBC ]\n"
-                                  "Oops , RestAPI , Dsa , Mvc\n\n" 
-                            
-                                  "TOOLS . . ,\n" 
-                                  "Intelliji\n"
-                                  "Postman , "
-                                  "Eclipse\n",
-                                  // " optimization.\n\nI have successfully built an e-commerce platform with a Java Spring"
-                                  // " Boot backend and Flutter frontend, implementing functionality to store multiple "
-                                  // "images for a single product. Additionally, I am developing a Flutter app and"
-                                  // " enhancing my knowledge of Android development." 
-                                  // ,
-                                  style: TextStyle(
-                                    color: Colors.white ,
-                                    fontFamily: 'f1',
-                                    fontSize: min( hi , wi ) / 26
-                                  ),
-                                
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ) ,
-                          
-                    SizedBox( height: hi / 10 ,) ,
-                    
-                          
-                  //   Align(
-                  //   alignment: Alignment( -0.4, 0.8 ),
-                  //   child: Container(
-                  //     height: hi / 15 ,
-                  //     width: wi / 3 ,
-                  //     color: const Color.fromARGB(0, 255, 193, 7) ,
-                  //     child: FittedBox(
-                  //       child: Row(
-                  //         children: [
-                  //           Text(
-                  //             'SWIPE . . . ',
-                  //             style: TextStyle(
-                  //               fontFamily: 'f1',
-                  //               color: const Color.fromARGB(0, 255, 255, 255)
-                  //             ),
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                          
-                          
-                  ],
-                ),
-              ),
-            ) ,
             
         
         

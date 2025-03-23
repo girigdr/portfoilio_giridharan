@@ -120,18 +120,29 @@ class _EState extends State<E> {
                 itemBuilder: (context, index) {
                   
                   return Center(
-                    child: Container(
-                      height: hi / 1.8 ,
-                      width: wi / 1.3,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 1 ,
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                        ),
-                          color: const Color.fromARGB(255, 0, 0, 0)
-                      // borderRadius: BorderRadius.all(Radius.circular( 10 ))
+                    child: 
+                    // Container(
+                    //   height: hi / 1.8 ,
+                    //   width: wi / 1.3,
+                    //   decoration: BoxDecoration(
+                    //     border: Border.all(
+                    //       width: 1 ,
+                    //       color: const Color.fromARGB(255, 255, 255, 255),
+                    //     ),
+                    //       color: const Color.fromARGB(255, 0, 0, 0)
+                    //   // borderRadius: BorderRadius.all(Radius.circular( 10 ))
                     
-                      ),
+                    //   ),
+                    Container(
+                      height: hi / 1.9 ,
+                      width: wi / 1.5,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 110, 110, 110),
+                        border: Border.all(
+                          width: 1 , 
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                        )
+                      ),  
                       child: Padding(
                         padding: EdgeInsets.all( wi / 10 ),
                         child: SingleChildScrollView(
@@ -139,7 +150,8 @@ class _EState extends State<E> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox( height: hi / 25 ,),
-                              Wrap(
+                              Wrap( alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: - 1, end: 0 ),
@@ -149,6 +161,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0),
                                         child: Text(
                                           map[ index + 1 ][ 0 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 40  ,
@@ -162,7 +175,8 @@ class _EState extends State<E> {
                               ),
                               SizedBox( height: hi / 30 ,),
       
-                              Wrap(
+                              Wrap(alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: 1, end: 0 ),
@@ -172,6 +186,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0 ),
                                         child: Text(
                                           map[ index + 1 ][ 1 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 45  ,
@@ -184,7 +199,8 @@ class _EState extends State<E> {
                                 ],
                               ),
                               SizedBox( height: hi / 15 ,),
-                              Wrap(
+                              Wrap(alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: - 1, end: 0 ),
@@ -194,6 +210,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0),
                                         child: Text(
                                           map[ index + 1 ][ 2 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 40  ,
@@ -206,7 +223,9 @@ class _EState extends State<E> {
                                 ],
                               ),
                               SizedBox( height: hi / 30 ,),
-                               Wrap(
+                               Wrap( 
+                                alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: 1, end: 0 ),
@@ -216,6 +235,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0 ),
                                         child: Text(
                                           map[ index + 1 ][ 3 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 45  ,
@@ -228,7 +248,8 @@ class _EState extends State<E> {
                                 ],
                               ),
                               SizedBox( height: hi / 15 ,),
-                              Wrap(
+                              Wrap(alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: - 1, end: 0 ),
@@ -238,6 +259,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0),
                                         child: Text(
                                           map[ index + 1 ][ 4 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 40  ,
@@ -250,7 +272,8 @@ class _EState extends State<E> {
                                 ],
                               ),
                               SizedBox( height: hi / 30 ,),
-                              Wrap(
+                              Wrap(alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: 1, end: 0 ),
@@ -260,6 +283,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0 ),
                                         child: Text(
                                           map[ index + 1 ][ 5 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 45  ,
@@ -272,7 +296,8 @@ class _EState extends State<E> {
                                 ],
                               ),
                               SizedBox( height: hi / 15 ,),
-                              Wrap(
+                              Wrap(alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: - 1, end: 0 ),
@@ -282,6 +307,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0),
                                         child: Text(
                                           map[ index + 1 ][ 6 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 40  ,
@@ -295,6 +321,8 @@ class _EState extends State<E> {
                               ),
                               SizedBox( height: hi / 30 ,),
                               Wrap(
+                                alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
                                 children: [
                                   TweenAnimationBuilder(
                                     tween: Tween<double>(begin: 1, end: 0 ),
@@ -304,6 +332,7 @@ class _EState extends State<E> {
                                         alignment: Alignment( value , 0 ),
                                         child: Text(
                                           map[ index + 1 ][ 7 ] ,
+                                          textAlign: TextAlign.center ,
                                           style: TextStyle(
                                             fontFamily: 'f1',
                                             fontSize: hi / 45  ,

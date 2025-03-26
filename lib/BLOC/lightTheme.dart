@@ -217,6 +217,25 @@ class BlocAI extends Bloc < AboutIcons , dynamic > {
 
 
 
+abstract class Project {
+  // static void add(ATF atf) {}
+}
+
+
+class PTF extends Project {
+  bool b ;
+  PTF( this.b ) ;
+}
+
+class BlocPTF extends Bloc < Project , bool > {
+  BlocPTF() : super( false ) {
+    on < PTF > ( ( event , emit ) {
+      emit( event.b ) ;
+    }) ;
+
+  }
+}
+
 
 // abstract class LightTheme {}
 

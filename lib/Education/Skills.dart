@@ -30,32 +30,45 @@ class _SkillsState extends State<Skills> {
     
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 110, 110, 110),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         body: Stack(
           children: [
 
-            BubbleScreen() ,
+           
+            Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: BubbleScreen(),
+            ) ,
 
-            Align(
-                        alignment: Alignment( 0.5, -0.7 ),
-                        child: Container(
-                        height: hi / 8 ,
-                        width: wi / 1.9,
-                          color: const Color.fromARGB(0, 255, 193, 7) ,
-                          child: FittedBox(
-                            child: Row(
-                              children: [
-                                Text(
+                      Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment( 0.5, -0.7 ),
+                            child: Container(
+                            height: hi / 8 ,
+                            width: wi / 1.9,
+                              color: const Color.fromARGB(0, 255, 193, 7) ,
+                              child: FittedBox(
+                                child: Text(
                                   'SKILLS',
                                   style: TextStyle(
                                     fontFamily: 'f1',
                                     color: const Color.fromARGB(110, 255, 255, 255)
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
                           ),
-                        ),
+                           FutureBuilder(
+                            future: Future.delayed(const Duration(milliseconds: 100)),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState == ConnectionState.done) {
+                                return icon(h: hi, w: wi);
+                              }
+                              return const SizedBox(); // Placeholder before icon loads
+                            },
+                          ),
+                        ],
                       ),
                   Padding(
                     padding:  EdgeInsets.only( top :  hi / 10  ),
@@ -265,6 +278,7 @@ class _SkillsState extends State<Skills> {
                     ),
                   ) ,
             
+
         
         
             Align(
@@ -293,20 +307,20 @@ class _SkillsState extends State<Skills> {
               ) , 
 
               
-            Positioned(
-              left : 0 ,
-              bottom: 0 ,
-                child: FutureBuilder(
-                        future: Future.delayed(const Duration(milliseconds: 100)),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState == ConnectionState.done) {
-                            return icon(h: hi, w: wi);
-                          }
-                          return const SizedBox(); // Placeholder before icon loads
-                        },
-                      ),
+            // Positioned(
+            //   left : 0 ,
+            //   bottom: 0 ,
+            //     child: FutureBuilder(
+            //             future: Future.delayed(const Duration(milliseconds: 100)),
+            //             builder: (context, snapshot) {
+            //               if (snapshot.connectionState == ConnectionState.done) {
+            //                 return icon(h: hi, w: wi);
+            //               }
+            //               return const SizedBox(); // Placeholder before icon loads
+            //             },
+            //           ),
 
-              ),
+            //   ),
         
           ],
         ),

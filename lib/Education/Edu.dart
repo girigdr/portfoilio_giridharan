@@ -38,11 +38,15 @@ class _EState extends State<E> {
         body: Stack(
           children: [
       
-            Container(
-                  height: hi,
-                  width: wi,
-              child: BubbleScreen() ,
-            ) ,
+            // Container(
+            //       height: hi,
+            //       width: wi,
+              // child: 
+              Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: BubbleScreen(),
+              ) ,
+            // ) ,
       
                 Container(
                   height: hi,

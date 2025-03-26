@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfoilio_giridharan/MOBILE/LandscapeMode.dart';
 import 'BLOC/AboutIcon.dart';
 import 'package:portfoilio_giridharan/MOBILE/LM.dart';
 import 'package:portfoilio_giridharan/MOBILE/PM.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => BlocL () ),
         BlocProvider(create: (context) => BlocLeet () ),
         BlocProvider(create: (context) => BlocMailI () ),
+        BlocProvider(create: (context) => BlocPTF () ),
       ] ,
       child: MaterialApp( 
           debugShowCheckedModeBanner : false , 
@@ -73,7 +75,7 @@ class MyApp extends StatelessWidget {
                    L_M( t : t , b :  b , l : l , r : r ) 
                     :
                     ( h > w ) ?  P_M( t : t , b :  b , l : l , r : r )  : 
-                    L_M( t : t , b :  b , l : l , r : r ) 
+                    RotatedBox(quarterTurns: 1 , child: Land_M( t : t , b :  b , l : l , r : r )) 
                 ),
               );
             },

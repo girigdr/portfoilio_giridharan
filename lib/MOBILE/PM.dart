@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfoilio_giridharan/BLOC/lightTheme.dart';
 import 'package:portfoilio_giridharan/Education/About.dart';
 import 'package:portfoilio_giridharan/Education/Edu.dart';
+import 'package:portfoilio_giridharan/Education/PRO.dart';
 import 'package:portfoilio_giridharan/Education/Skills.dart';
 import 'package:portfoilio_giridharan/LINKS/Link.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -47,14 +48,12 @@ class _P_MState extends State<P_M>  {
 }
 
 
-
-
 Widget Skils ( w , h ,context ) {
     final skill =  BlocProvider.of < BlocSTF >( context ) ;
 
   return Positioned(
           right: w / 20 ,
-          top: h / 4 ,
+          top: h / 5.5 ,
           child: RotatedBox(
             quarterTurns: 1 ,
             child: Stack(
@@ -92,6 +91,55 @@ Widget Skils ( w , h ,context ) {
 
 
 
+Widget Pro ( w , h ,context ) {
+
+  
+    final project =  BlocProvider.of < BlocPTF >( context ) ;
+  // final skill =  BlocProvider.of < BlocSTF >( context ) ;
+
+  return Positioned(
+          right: w / 20 ,
+          bottom: 0 ,
+          child: RotatedBox(
+            quarterTurns: 1 ,
+            child: Stack(
+              children: [
+                
+                
+                Positioned(
+                  right: 0 ,
+                  child: TweenAnimationBuilder(
+                      curve: Curves.decelerate ,
+                      duration: Duration( milliseconds: 1000 ),
+                      tween: ColorTween( begin: Colors.transparent ,end:  const Color.fromARGB(255, 0, 0, 0) ),
+                      builder: (context, value, child) {
+                      return Text( 
+                        'PRO' , 
+                        style: TextStyle( fontFamily: 'f1' , fontSize: w / 25, color: value  ) ,
+                      );
+                    }
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () { 
+
+                      project.add( PTF( true ) ) ;
+                  },
+                  child: Container(
+                    height: w / 15 ,
+                    width: h / 15 ,
+                    color: const Color.fromARGB(0, 255, 193, 7),
+                  ),
+                ) ,
+              ],
+            ),
+          ),
+
+        ) ;
+}
+
+
+
 
 
 dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin , wl , l , r , t , b , context ) {
@@ -106,6 +154,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
   edu.add(EdTF (false )) ;
   final about =  BlocProvider.of < BlocATF >( context ) ;
   final skill =  BlocProvider.of < BlocSTF >( context ) ;
+  final project =  BlocProvider.of < BlocPTF >( context ) ;
   return Stack(
       children: [
         Positioned(
@@ -122,6 +171,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                 child: ( h1 == h / 2 ) ? Stack(
                   children: [
                     Skils(w, h , context ) ,
+                    Pro(w, h , context ) ,
                     top( h , w , h2 ) ,
                     icon(wl :wl , h : h , w : w , bloc1 : bloc1 , git : git , phone : phone , mail : mail , leetcode : leetcode , linkedin: linkedin , h2 : h2  ),
                   ],
@@ -274,6 +324,56 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
         ),
 
 
+
+
+
+
+
+
+        BlocBuilder<BlocPTF, bool>(
+          builder: (context, showE) {
+            if (showE) {
+              return TweenAnimationBuilder(
+                tween: Tween<double>(begin: 0, end: w),
+                curve: Curves.easeInOut,
+                duration: Duration(milliseconds: 300),
+                builder: (context, value, child) {
+
+                  if (value == w) {
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Proj() ,
+                        ),
+                      );
+                    });
+
+                    Timer( Duration( milliseconds: 100 ), () => project.add( PTF ( false ) ) ,) ;
+                  }
+
+                  return Positioned(
+                    bottom: 0,
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      height: h,
+                      width: value,
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      // child: ( value == w ) ? About( about : about , l: h , r:w ,  t:t , b:b, ) : SizedBox(),
+                      child: SizedBox(),
+
+                    ),
+                  );
+                },
+              );
+            }
+            return Container(); // Don't show E when showE is false
+          },
+        ),
+
+
+
       ],
     );
 }
@@ -284,17 +384,20 @@ double n = 0 ;
 dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
   
   final about =  BlocProvider.of < BlocATF >( context ) ;
+  final project =  BlocProvider.of < BlocPTF >( context ) ;
   return  Stack(
       children: [
 
 
         Positioned(
           right: w / 20 ,
-          bottom: h / 4 ,
+          bottom: h / 5.5 ,
           child: RotatedBox(
             quarterTurns: 1 ,
             child: Stack(
               children: [
+
+                
                 
                 
                 TweenAnimationBuilder(
@@ -325,6 +428,78 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
           ),
 
         ) ,
+
+
+        Positioned(
+          right: w / 20 ,
+          top: 0 ,
+          child: RotatedBox(
+            quarterTurns: 1 ,
+            child: Stack(
+              children: [
+
+                
+                
+                
+                TweenAnimationBuilder(
+                    curve: Curves.decelerate ,
+                    duration: Duration( milliseconds: 1000 ),
+                    tween: ColorTween( begin: Colors.transparent ,end:  Colors.white ),
+                    builder: (context, value, child) {
+                    return Text( 
+                      ' JECT' , 
+                      style: TextStyle( fontFamily: 'f1' , fontSize: w / 25, color: value  ) ,
+                    );
+                  }
+                ),
+                GestureDetector(
+                  onTap: (){
+                    
+                      project.add( PTF( true ) ) ;
+
+                  },
+                  child: Container(
+                    height: w / 15 ,
+                    width: h / 15 ,
+                    color: const Color.fromARGB(0, 255, 193, 7),
+                  ),
+                ) ,
+              ],
+            ),
+          ),
+
+        ) ,
+
+        // Positioned(
+        //             top: 0 ,
+        //             right :w / 20 ,
+        //             // bottom: h / 15  ,
+        //             // right: 1 ,
+        //             child: Stack(
+        //               children: [
+                        
+        //                 Container(
+        //                   height:  h / 15 , 
+        //                   width:    w / 15  ,
+        //                   color: const Color.fromARGB(0, 255, 193, 7),
+                          
+        //                   child: FittedBox(child: Text( "ATION" , style: TextStyle(  color: const Color.fromARGB(255, 255, 255, 255) ,fontFamily: 'f1' ),))),
+        //                   GestureDetector(
+        //                   onTap: () {
+        //                     print(123) ;
+        //                   },
+        //                   child: Container(
+        //                     height:  h / 15 , 
+        //                     width:    w / 15  ,
+        //                     color: const Color.fromARGB(0, 255, 193, 7),
+                            
+        //                   ),
+
+        //                 ) ,
+                      
+        //               ],
+        //             )
+        //           ) ,
 
         
 
@@ -371,13 +546,13 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
 
         ) ,
         if ( h1 == h / 2  ) Align(
-          alignment: Alignment( 0, 0.96 ),
+          alignment: Alignment( 0 , 0.96 ),
           child: Stack(
             children: [
               Container(
-                height: h / 20 ,
-                width: w / 2  ,
-                color: Colors.transparent,
+                height: h / 25 ,
+                width: w /3  ,
+                color: const Color.fromARGB(0, 208, 255, 0),
                 child: Center(
                   child: TweenAnimationBuilder(
                     curve: Curves.decelerate ,
@@ -423,8 +598,8 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                   // Navigator.push( context , MaterialPageRoute(builder: (context) => E( h: h , w:w ,  t:t , b:b )) ) ;
                 },
                 child: Container(
-                  height: h / 20 ,
-                  width: w / 2  ,
+                height: h / 25 ,
+                width: w /3  ,
                   color: const Color.fromARGB(0, 255, 193, 7),
                 ),
               ) ,
@@ -508,11 +683,13 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                       child: Container(
                         height: ( h / 2.0835 - h / 15 ) / 1.7 ,
                         width: w / 1.4 ,
+                        // height: 200 ,
+                        // width : 200 ,
                         decoration: BoxDecoration(
                           // color: Colors.amber,
                           image: DecorationImage(
                             image:AssetImage("assets/image/photo2.png" )
-                            ,fit: BoxFit.cover
+                            ,fit: BoxFit.contain
                           )
                         ), 
                       )

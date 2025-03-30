@@ -34,7 +34,6 @@ class _L_MState extends State<L_M>  {
     final linkedin =  BlocProvider.of < BlocLinkedIn >( context ) ;
 
 
-
     return LM( h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin ) ;
   }
 }

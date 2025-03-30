@@ -57,7 +57,10 @@ class MyApp extends StatelessWidget {
               brightness:  Brightness.dark  ,
             )
           )  ,
-          home :Builder(
+          home :
+
+
+           Builder(
             builder: (context) {
               final mediaQuery = MediaQuery.of(context);
               final t = mediaQuery.padding.top;
@@ -70,16 +73,21 @@ class MyApp extends StatelessWidget {
               // return BubbleScreen() ;
               return Scaffold(
                 body: SafeArea(
-                  child: kIsWeb ?
+                  child:
+                  //  kIsWeb ?
                   
-                   L_M( t : t , b :  b , l : l , r : r ) 
-                    :
+                  //  L_M( t : t , b :  b , l : l , r : r ) 
+                  //   :
                     ( h > w ) ?  P_M( t : t , b :  b , l : l , r : r )  : 
                     RotatedBox(quarterTurns: 1 , child: Land_M( t : t , b :  b , l : l , r : r )) 
                 ),
               );
             },
-          ),
+          ), // Your async function
+            
+                    
+          
+          
                     
                     
           

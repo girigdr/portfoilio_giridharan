@@ -11,10 +11,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfoilio_giridharan/BLOC/lightTheme.dart';
 import 'package:portfoilio_giridharan/Education/About.dart';
+import 'package:portfoilio_giridharan/Education/AboutLandScapeMode.dart';
 import 'package:portfoilio_giridharan/Education/Edu.dart';
 import 'package:portfoilio_giridharan/Education/PRO.dart';
 import 'package:portfoilio_giridharan/Education/Skills.dart';
 import 'package:portfoilio_giridharan/LINKS/Link.dart';
+import 'package:portfoilio_giridharan/MOBILE/ABO.dart';
+import 'package:portfoilio_giridharan/MOBILE/EDUCATION.dart';
+import 'package:portfoilio_giridharan/MOBILE/PROJECT.dart';
+import 'package:portfoilio_giridharan/MOBILE/SKILL.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Land_M extends StatefulWidget {
@@ -55,7 +60,7 @@ Widget Skils ( w , h ,context ) {
     final skill =  BlocProvider.of < BlocSTF >( context ) ;
 
   return Positioned(
-          right: w / 20 ,
+          right: 0 ,
           top: h / 5.5 ,
           child: RotatedBox(
             quarterTurns: 3 ,
@@ -102,7 +107,7 @@ Widget Pro ( w , h ,context ) {
 
   return Positioned(
           bottom: 0 ,
-          right:  w / 20 , 
+          right:  0 , 
           child: RotatedBox(
             quarterTurns: 3 ,
             child: Stack(
@@ -179,8 +184,8 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                     if ( h1 == h / 2  ) Positioned(
                       // alignment: Alignment( - 1 , 0.96 ),
                       
-                      left: w / 20 ,
-                      top: h / 4 ,
+                      left: 0 ,
+                      top: h / 7 ,
                       child: RotatedBox(
                         quarterTurns: 3,
                         child: Stack(
@@ -286,7 +291,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => E(edu: edu, h: h, w: w, t: t, b: b),
+                          builder: (context) => EDUScreen() ,
                         ),
                       );
                     });
@@ -328,7 +333,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => About() ,
+                          builder: (context) => AboutScreen() ,
                         ),
                       );
                     });
@@ -370,7 +375,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Skills( skill : skill  , l: h , r:w ,  t:t , b:b, ) ,
+                          builder: (context) =>SkillScreen()  ,
                         ),
                       );
                     });
@@ -419,7 +424,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Proj() ,
+                          builder: (context) => PROScreen() ,
                         ),
                       );
                     });
@@ -468,7 +473,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
         iconLM() ,
 
         Positioned(
-          right: w / 20 ,
+          right: 0 ,
           bottom: h / 5.5 ,
           child: RotatedBox(
             quarterTurns: 3 ,
@@ -509,7 +514,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
 
 
         Positioned(
-          right: w / 20 ,
+          right: 0 ,
           top: 0 ,
           child: RotatedBox(
             quarterTurns: 1 ,
@@ -587,7 +592,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
         
         
         Positioned(
-          left: w / 20 ,
+          left: 0 ,
           bottom: h / 4 ,
           child: RotatedBox(
             quarterTurns: 3 ,
@@ -661,11 +666,24 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                 ),
                 child: ( h2 ==  h / 2.0835 - h / 10  ) ? RotatedBox(
                   quarterTurns: 3,
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment( 0 ,  0.7 ),
-                        child: TweenAnimationBuilder(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        
+                        Container(
+                          height: ( h / 2.0835 - h / 15 ) / 2 ,
+                          width: w / 1.5 ,
+                          // height: 200 ,
+                          // width : 200 ,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(0, 255, 193, 7),
+                            image: DecorationImage(
+                              image:AssetImage("assets/image/photo2.png" )
+                              ,fit: BoxFit.contain
+                            )
+                          ), 
+                        ) ,
+                        TweenAnimationBuilder(
                           curve: Curves.decelerate ,
                           duration: Duration( milliseconds: 700 ),
                           tween: ColorTween( begin: Colors.transparent ,end:  const Color.fromARGB(255, 255, 255, 255) ),
@@ -679,11 +697,8 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                               ),
                             );
                           }
-                        ),
-                      ) ,
-                      Align(
-                        alignment: Alignment( 0 ,  0.9 ),
-                        child: TweenAnimationBuilder(
+                        ) ,
+                        TweenAnimationBuilder(
                           curve: Curves.decelerate ,
                           duration: Duration( milliseconds: 700 ),
                           tween: ColorTween( begin: Colors.transparent ,end:  const Color.fromARGB(255, 255, 255, 255) ),
@@ -698,25 +713,9 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                               ),
                             );
                           }
-                        ),
-                      ) ,
-                      Align(
-                        alignment: Alignment( 0 ,  - 0.86 ),
-                        child: Container(
-                          height: ( h / 2.0835 - h / 15 ) / 2 ,
-                          width: w / 1.5 ,
-                          // height: 200 ,
-                          // width : 200 ,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(0, 255, 193, 7),
-                            image: DecorationImage(
-                              image:AssetImage("assets/image/photo2.png" )
-                              ,fit: BoxFit.contain
-                            )
-                          ), 
-                        )
-                      ) ,
-                    ],
+                        ) ,
+                      ],
+                    ),
                   ),
                 ) : null ,
               ) ;

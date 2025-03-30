@@ -8,10 +8,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfoilio_giridharan/BLOC/lightTheme.dart';
 import 'package:portfoilio_giridharan/Education/About.dart';
+import 'package:portfoilio_giridharan/Education/AboutLandScapeMode.dart';
 import 'package:portfoilio_giridharan/Education/Edu.dart';
 import 'package:portfoilio_giridharan/Education/PRO.dart';
 import 'package:portfoilio_giridharan/Education/Skills.dart';
 import 'package:portfoilio_giridharan/LINKS/Link.dart';
+import 'package:portfoilio_giridharan/MOBILE/ABO.dart';
+import 'package:portfoilio_giridharan/MOBILE/EDUCATION.dart';
+import 'package:portfoilio_giridharan/MOBILE/PROJECT.dart';
+import 'package:portfoilio_giridharan/MOBILE/SKILL.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class P_M extends StatefulWidget {
@@ -204,14 +209,14 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
               return TweenAnimationBuilder(
                 tween: Tween<double>(begin: 0, end: h ),
                 curve: Curves.easeInOut,
-                duration: Duration(milliseconds: 300),
+                duration: Duration(milliseconds: 500),
                 builder: (context, value, child) {
                   if (value == h ) {
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => E(edu: edu, h: h, w: w, t: t, b: b),
+                          builder: (context) => EDUScreen() ,
                         ),
                       );
                     });
@@ -253,7 +258,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => About() ,
+                          builder: (context) => AboutScreen(),
                         ),
                       );
                     });
@@ -295,7 +300,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Skills( skill : skill  , l: h , r:w ,  t:t , b:b, ) ,
+                          builder: (context) => SkillScreen() ,
                         ),
                       );
                     });
@@ -344,7 +349,7 @@ dynamic PM ( edu , h , w , h2 , bloc1 , git , phone , mail , leetcode , linkedin
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Proj() ,
+                          builder: (context) => PROScreen() ,
                         ),
                       );
                     });

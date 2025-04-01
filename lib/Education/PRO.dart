@@ -327,7 +327,7 @@ class _ProjState extends State<Proj> {
                                               height: wi / 15 ,
                                               width: hi / 10 ,
                                               color: const Color.fromARGB(255, 255, 255, 255),
-                                                child: Center(
+                                                child: FittedBox(
                                                   child: Text( 
                                                     'VIEW CODE' , 
                                                     style: TextStyle( fontFamily: 'f1' , fontSize: wi / 25, color: value  ) ,

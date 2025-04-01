@@ -5,7 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfoilio_giridharan/BLOC/AboutIcon.dart';
-import 'package:portfoilio_giridharan/Education/Edu.dart';
+import 'package:portfoilio_giridharan/Education/About.dart';
 import 'package:portfoilio_giridharan/LINKS/Link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -521,8 +521,8 @@ class icon extends StatelessWidget {
           ),
           
           
-          if ( context.watch<BlocOfI1>().state == w / 4 )  SizedBox( height: min ( h , w ) / 20 , ) ,
-          if (context.watch<BlocOfI1>().state == w / 4 ) BlocBuilder < BlocI2 , double >(
+          if ( context.watch<BlocOfI1>().state == w / 5 )  SizedBox( height: min ( h , w ) / 20 , ) ,
+          if (context.watch<BlocOfI1>().state == w / 5 ) BlocBuilder < BlocI2 , double >(
             builder: (context, state)  {
               return TweenAnimationBuilder(
                 curve: Curves.easeInToLinear ,
@@ -550,12 +550,12 @@ class icon extends StatelessWidget {
             builder: (context, state)  {
               return TweenAnimationBuilder(
                       curve: Curves.decelerate,
-                      tween: Tween < double > ( begin:  0 , end: min ( h , w ) / 4 ,),
+                      tween: Tween < double > ( begin:  0 , end: min ( h , w ) / 5 ,),
                       duration: Duration(milliseconds: 1000 ),
                       builder: ( context , s , child ) {
                         i1.add ( IconsI1(s) ) ;
-                        return Positioned(
-                          bottom: 0 ,
+                        return Align(
+                          alignment: Alignment.centerRight ,
                           child: Container(
                             height: s ,
                             width: w / 20 ,
@@ -579,3 +579,5 @@ class icon extends StatelessWidget {
     )  ;
   }
 }
+
+

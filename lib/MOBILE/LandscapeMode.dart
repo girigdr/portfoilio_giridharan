@@ -668,6 +668,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
                   quarterTurns: 3,
                   child: SingleChildScrollView(
                     child: Column(
+                      mainAxisAlignment : MainAxisAlignment.spaceEvenly ,
                       children: [
                         
                         Container(

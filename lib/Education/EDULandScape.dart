@@ -303,7 +303,7 @@ class _EEState extends State<EE> {
                     //   ),
                     Container(
                       height: wi / 1.6 ,
-                      width: hi / 2,
+                      width: hi / 1.9,
                       decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 110, 110, 110),
                         border: Border.all(

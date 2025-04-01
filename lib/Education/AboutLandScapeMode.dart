@@ -502,7 +502,7 @@ class iconALM1 extends StatelessWidget {
 
     return Positioned(
       left:  w / 30  ,
-      bottom: h / 4 ,
+      bottom: 0 ,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center ,
         children: [

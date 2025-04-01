@@ -57,7 +57,7 @@ Widget Skils ( w , h ,context ) {
     final skill =  BlocProvider.of < BlocSTF >( context ) ;
 
   return Positioned(
-          right: w / 20 ,
+          right: 10 ,
           top: h / 5.5 ,
           child: RotatedBox(
             quarterTurns: 1 ,
@@ -103,7 +103,7 @@ Widget Pro ( w , h ,context ) {
   // final skill =  BlocProvider.of < BlocSTF >( context ) ;
 
   return Positioned(
-          right: w / 20 ,
+          right: 10 ,
           bottom: 0 ,
           child: RotatedBox(
             quarterTurns: 1 ,
@@ -395,7 +395,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
 
 
         Positioned(
-          right: w / 20 ,
+          right: 10 ,
           bottom: h / 5.5 ,
           child: RotatedBox(
             quarterTurns: 1 ,
@@ -436,7 +436,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
 
 
         Positioned(
-          right: w / 20 ,
+          right: 10 ,
           top: 0 ,
           child: RotatedBox(
             quarterTurns: 1 ,
@@ -511,7 +511,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
         
         
         Positioned(
-          left: w / 20 ,
+          left: 10 ,
           bottom: h / 4 ,
           child: RotatedBox(
             quarterTurns: 3 ,
@@ -551,7 +551,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
 
         ) ,
         if ( h1 == h / 2  ) Align(
-          alignment: Alignment( 0 , 0.96 ),
+          alignment: Alignment( 0 , 1 ),
           child: Stack(
             children: [
               Container(
@@ -709,7 +709,7 @@ dynamic bottom( h , w , h1 , wl , context , l , r , t , b  , edu ) {
         BlocBuilder < BlocWL , double > (
           builder: (context, state) {
             return Positioned(
-              left:  w / 30  ,
+              left:  10  ,
               bottom : h / 2.5   ,
               child:TweenAnimationBuilder(
                 curve: Curves.decelerate, //w / 7
@@ -892,7 +892,7 @@ class icon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left:  w / 30  ,
+      left:  10  ,
       bottom: 1 ,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center ,
@@ -1052,8 +1052,8 @@ class icon extends StatelessWidget {
           ),
           
           
-          if ( context.watch<BlocOfIconView>().state == w / 6 )  SizedBox( height: min ( h , w ) / 20 , ) ,
-          if (context.watch<BlocOfIconView>().state == w / 6 ) BlocBuilder < BlocPhone , double >(
+          if ( context.watch<BlocOfIconView>().state == w / 8 )  SizedBox( height: min ( h , w ) / 20 , ) ,
+          if (context.watch<BlocOfIconView>().state == w / 8 ) BlocBuilder < BlocPhone , double >(
             builder: (context, state)  {
               return TweenAnimationBuilder(
                 curve: Curves.easeInToLinear ,
@@ -1076,12 +1076,12 @@ class icon extends StatelessWidget {
               ) ;
             }
           )  ,
-          if ( context.watch<BlocOfIconView>().state == w / 6  )SizedBox( height: min ( h , w ) / 20 , ) ,
+          if ( context.watch<BlocOfIconView>().state == w / 8  )SizedBox( height: min ( h , w ) / 20 , ) ,
           if ( context.watch < BlocWL > ().state ==  h / 2 - h / 2.5 - 1 )BlocBuilder < BlocOfIconView , double >(
             builder: (context, state)  {
               return TweenAnimationBuilder(
                       curve: Curves.decelerate,
-                      tween: Tween < double > ( begin:  0 , end: min ( h , w ) / 6 ,),
+                      tween: Tween < double > ( begin:  0 , end: min ( h , w ) / 8 ,),
                       duration: Duration(milliseconds: 1000 ),
                       builder: ( context , s , child ) {
                         bloc1.add ( IconsView(s) ) ;
